@@ -12,7 +12,7 @@
       <div class="change" >
     
     <button class="circle" id="black" style="background-color: black;" onclick="changecolor()"></button>
-    
+    <button class="circle" id="pink" style="background-color: pink;" onclick="changecolor()"></button>
     </div>
     </div>
     
@@ -20,9 +20,16 @@
         <label for="task">Enter Task</label> <br><br>
         <input type="text-box" id="task">
         <button id="submit" onclick="myfunc()">Add</button>
+        <br> <br>
+        <div class="filters">
+    <button onclick="filterTasks('all')" id="search">All</button>
+    <button onclick="filterTasks('completed')" id="search">Completed</button>
+    <button onclick="filterTasks('pending')" id="search">Pending</button>
+</div>
+
     </div>
     <div class="task-list">
-        <h2>My task list</h2>
+        <h2 style="margin-left: 30px;">My task list</h2>
        
     </div>
 

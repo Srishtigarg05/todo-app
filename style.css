@@ -1,51 +1,246 @@
-.circle{
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-left: 700px;
-    margin-top: 20px;
-}
-body.dark {
-    background-color: #1a1a1a;
-    color: white;
-
+/* ===== Body Styling ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-body.light {
-    background-color: white;
-    color: black;
-    
-
-}
-
-.head{
-    
+/* ===== Header ===== */
+.head {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ddd;
+    flex-wrap: wrap; /* for small screens */
 }
-.head h1{
-   text-align: center;
+
+/* Header Title */
+.head h1 {
+    margin: 0;
+    font-size: 2rem;
+    flex: 1;
+    text-align: center;
+}
+
+/* Container for color buttons */
+.head .change {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+/* ===== Theme Buttons ===== */
+.circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effect for buttons */
+.circle:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 .container{
-    font-size: 1.5rem;
     text-align: center;
-    
-}
-#task{
-    height: 30px;
-    width: 300px;
-    font-size: 1.2rem;
-    background-color: lightgray;
+    margin-top: 20px;
 }
 #submit{
-    height: 35px;
-    width: 80px;
-    font-size: 1.2rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.2s;
 }
-.list{
-    height: auto;
-    width: 400px;
-    border: 1px solid black;
 
+/* Specific colors */
+#black {
+    background-color: black;
+}
+
+#red {
+    background-color: pink;
+}
+
+/* Active button styling */
+.circle.active {
+    border: 3px solid #555;
+    transform: scale(1.3);
+}
+
+/* ===== Input Section ===== */
+.input-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#task {
+    width: 60%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+#search-btn {
+    padding: 10px 15px;
+    margin-left: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+#search-btn:hover {
+    background-color: #555;
+}
+
+/* ===== Todo List ===== */
+#result {
+    width: 80%;
+    margin: 0 auto 40px auto;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect on items */
+.item:hover {
+    transform: scale(1.01);
+}
+
+/* Task text */
+.task {
+    flex: 1;
+    margin-left: 10px;
+}
+
+/* Checkbox */
+.check {
+    width: 18px;
+    height: 18px;
+}
+
+/* Delete button */
+.delete {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.delete:hover {
+    transform: scale(1.2);
+}
+
+/* ===== Dark Mode ===== */
+body.dark {
+    background-color: #1a1a1a;
+    color: #eee;
+}
+
+body.dark .head {
+    background-color: #333;
+    border-bottom: 2px solid #555;
+}
+
+body.dark #task {
+    background-color: #555;
+    color: #eee;
+    border-color: #777;
+}
+
+body.dark #search-btn {
+    background-color: #555;
+    color: #eee;
+}
+
+body.dark .item {
+    background-color: #333;
+    border-color: #555;
+}
+
+
+
+body.dark .circle {
+    border-color: #eee;
+}
+/* ===== Pink Theme ===== */
+body.pink {
+    background-color: #ffe6f0; /* soft pink background */
+    color: #333;
+}
+
+body.pink .head {
+    background-color: #ffb6c1; /* light pink header */
+    border-bottom: 2px solid #ff99aa;
+}
+
+body.pink #task {
+    background-color: #fff0f5; /* input background */
+    color: #333;
+    border-color: #ff99aa;
+}
+
+body.pink #search-btn {
+    background-color: #ff66a3; /* button color */
+    color: white;
+}
+
+body.pink #search-btn:hover {
+    background-color: #ff3399;
+}
+
+body.pink .item {
+    background-color: #fff0f5; /* task background */
+    border-color: #ffb6c1;
+}
+
+body.pink .circle {
+    border-color: #ff3399;
+}
+
+/* Completed task style in pink theme */
+body.pink .item.completed {
+    background-color: #ffcce0; /* slightly darker pink for completed */
+}
+
+/* Checkbox strike-through in pink theme */
+body.pink .task.completed {
+    text-decoration: line-through;
+    color: #cc0066;
+}
+
+
+#search{
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.2s;
 }

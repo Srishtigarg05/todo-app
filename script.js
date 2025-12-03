@@ -2,6 +2,10 @@ let c4=document.getElementById("black");
 c4.addEventListener("click",function(e){
     document.body.classList.toggle("dark");
 });
+let c5=document.getElementById("pink");
+c5.addEventListener("click",function(e){
+    document.body.classList.toggle("pink");
+});
 let value=document.addEventListener('keypress',(enter)=>{
     if(enter.key==="Enter"){
         myfunc();
@@ -37,9 +41,30 @@ function myfunc(){
             item.style.backgroundColor = "green";
         } else {
             item.style.textDecoration = "none";
-            item.style.backgroundColor = "white";
+             item.style.backgroundColor = "";
         }
     }
 });
 
+}
+
+
+function filterTasks(type) {
+    const items = document.querySelectorAll(".item");
+
+    items.forEach(item => {
+        if (type === "all") {
+            item.style.display = "flex";
+        } 
+        else if (type === "completed") {
+            item.classList.contains("completed") 
+                ? item.style.display = "flex"
+                : item.style.display = "none";
+        }
+        else if (type === "pending") {
+            !item.classList.contains("completed") 
+                ? item.style.display = "flex"
+                : item.style.display = "none";
+        }
+    });
 }
